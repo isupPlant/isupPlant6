@@ -1,0 +1,2 @@
+include ':shell'
+rootProject.name = "isupplant6.0"
