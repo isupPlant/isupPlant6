@@ -1,2 +1,6 @@
-include ':shell'
-rootProject.name = "isupplant6.0"
+include ':shell',
+/*框架*/ ':isupplant-shell:module_push', ':isupplant-shell:middleware', ':isupplant-shell:module_search', ':isupplant-shell:home',
+':isupplant-shell:module_contact', ':isupplant-shell:module_login', ':isupplant-shell:module_webview',  ':isupplant-shell:module_scan',
+':isupplant-shell:module_map', ':isupplant-shell:module_data_manage',':isupplant-shell:module_iweb_flowchart'
+
+//rootProject.name = "isupplant6.0"
