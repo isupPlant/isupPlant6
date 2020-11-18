@@ -1,3 +1,6 @@
 [submodule "isupplant-shell"]
 	path = isupplant-shell
 	url = git@192.168.90.160:isupplant-group/isupplant-shell.git
+[submodule "isupplant-patrol"]
+	path = isupplant-patrol
+	url = git@192.168.90.160:isupplant-group/isupplant-patrol.git
