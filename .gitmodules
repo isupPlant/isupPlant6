@@ -4,3 +4,30 @@
 [submodule "isupplant-patrol"]
 	path = isupplant-patrol
 	url = git@192.168.90.160:isupplant-group/isupplant-patrol.git
+[submodule "isupplant-eam"]
+	path = isupplant-eam
+	url = git@192.168.90.160:isupplant-group/isupplant-eam.git
+[submodule "isupplant-lims"]
+	path = isupplant-lims
+	url = git@192.168.90.160:isupplant-group/isupplant-lims.git
+[submodule "isupplant-paper"]
+	path = isupplant-paper
+	url = git@192.168.90.160:isupplant-group/isupplant-paper.git
+[submodule "isupplant-psc"]
+	path = isupplant-psc
+	url = git@192.168.90.160:isupplant-group/isupplant-psc.git
+[submodule "isupplant-ses"]
+	path = isupplant-ses
+	url = git@192.168.90.160:isupplant-group/isupplant-ses.git
+[submodule "isupplant-videoPush"]
+	path = isupplant-videoPush
+	url = git@192.168.90.160:isupplant-group/isupplant-videoPush.git
+[submodule "isupplant-wms"]
+	path = isupplant-wms
+	url = git@192.168.90.160:isupplant-group/isupplant-wms.git
+[submodule "isupplant-wom"]
+	path = isupplant-wom
+	url = git@192.168.90.160:isupplant-group/isupplant-wom.git
+[submodule "isupplant-wts"]
+	path = isupplant-wts
+	url = git@192.168.90.160:isupplant-group/isupplant-wts.git
