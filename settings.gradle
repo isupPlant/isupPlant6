@@ -5,4 +5,5 @@ include ':shell',
 
 /*巡检*/':isupplant-patrol:module_xj',':isupplant-patrol:module_xj_temp'
 
-//rootProject.name = "isupplant6.0"
+
+/*连续生产*/ ':isupplant-psc:module_task'

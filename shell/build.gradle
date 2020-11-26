@@ -21,7 +21,7 @@ android {
 
     productFlavors {
         dev {
-            applicationId 'com.supcon.supplant'
+            applicationId 'com.supcon.supplant.test'
             manifestPlaceholders = [CHANNEL_VALUE : name,
                                     APP_NAME            : "@string/application_name",
                                     APP_ICON            : "@mipmap/ic_launcher",
@@ -139,22 +139,22 @@ dependencies {
 //        implementation project(':isupplant-wom:module_wom_producetask')
 //        implementation project(':isupplant-wom:module_wom_rejectmaterial')
 //        implementation project(':isupplant-wom:module_wom_pending')
-//        implementation project(':isupplant-eam:module_sbda')
-//        implementation project(':isupplant-eam:module_wxgd')
-//        implementation project(':isupplant-eam:module_spare')
-//        implementation project(':isupplant-eam:module_pd')
-//        implementation project(':isupplant-eam:module_yxjl')
-//        implementation project(':isupplant-eam:module_warning')
-//        implementation project(':isupplant-eam:module_tsd')
-//        implementation project(':isupplant-wms:module_wms')
-//        implementation project(':isupplant-wms:module_wms_cgrk')
-//        implementation project(':isupplant-wms:module_wms_produce')
-//        implementation project(':isupplant-wms:module_wms_other')
-//        implementation project(':isupplant-wms:module_wms_sale')
-//        implementation project(':isupplant-wms:module_wms_hwtz')
-//        implementation project(':isupplant-wms:module_wms_wlcx')
-//        implementation project(':isupplant-wms:module_wms_pk')
-//
+        implementation project(':isupplant-eam:module_sbda')
+        implementation project(':isupplant-eam:module_wxgd')
+        implementation project(':isupplant-eam:module_spare')
+        implementation project(':isupplant-eam:module_pd')
+        implementation project(':isupplant-eam:module_yxjl')
+        implementation project(':isupplant-eam:module_warning')
+        implementation project(':isupplant-eam:module_tsd')
+        implementation project(':isupplant-wms:module_wms')
+        implementation project(':isupplant-wms:module_wms_cgrk')
+        implementation project(':isupplant-wms:module_wms_produce')
+        implementation project(':isupplant-wms:module_wms_other')
+        implementation project(':isupplant-wms:module_wms_sale')
+        implementation project(':isupplant-wms:module_wms_hwtz')
+        implementation project(':isupplant-wms:module_wms_wlcx')
+        implementation project(':isupplant-wms:module_wms_pk')
+
 //        implementation project(':isupplant-lims:module_lims')
 //        implementation project(':isupplant-lims:module_product')
 //        implementation project(':isupplant-lims:module_incoming')
