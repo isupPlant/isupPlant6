@@ -129,7 +129,7 @@ dependencies {
         implementation project(':isupplant-patrol:module_xj_temp')
 //        implementation project(':isupplant-wts:module_wts')
 //        implementation project(':isupplant-ses:module_unsafe')
-//        implementation project(':isupplant-ses:module_hazardmanager')
+        implementation project(':isupplant-ses:module_hazardmanager')
 //        implementation project(':isupplant-ses:module_livevideo')
 //        implementation project(':isupplant-ses:module_emergencymanager')
 //        implementation project(':isupplant-ses:module_drillplan')
