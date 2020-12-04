@@ -65,6 +65,8 @@
     {"name": "单样品录入结果",   "code": "LIMS_RecordBySingleSample",     "id": 64, "sort": 64, "module": "实验室管理", "router": "LIMS_RecordBySingleSample","isHidden": false},
     {"name": "留样单",   "code": "LIMS_Retention",     "id": 65, "sort": 65, "module": "实验室管理", "router": "LIMS_Retention","isHidden": false},
     {"name": "样品台账",   "code": "LIMS_SampleQuery",     "id": 66, "sort": 66, "module": "实验室管理", "router": "LIMS_SampleQuery","isHidden": false},
-    {"name": "扫码登样",   "code": "LIMS_ScanToReg",     "id": 67, "sort": 67, "module": "实验室管理", "router": "LIMS_ScanToReg","isHidden": false}
+    {"name": "扫码登样",   "code": "LIMS_ScanToReg",     "id": 67, "sort": 67, "module": "实验室管理", "router": "LIMS_ScanToReg","isHidden": false},
+    {"name": "任务督办",   "code": "PSC_TASK",     "id": 67, "sort": 68, "module": "生产管理", "router": "PSC_TASK","isHidden": false}
+
   ]
 }
