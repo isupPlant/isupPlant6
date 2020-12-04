@@ -134,6 +134,7 @@ dependencies {
 //        implementation project(':isupplant-ses:module_emergencymanager')
 //        implementation project(':isupplant-ses:module_drillplan')
 //        implementation project(':isupplant-ses:module_safetycheck')
+//        implementation project(':isupplant-ses:module_comprehensive')
 //        implementation project(':isupplant-wom:module_wom_batchmaterial')
 //        implementation project(':isupplant-wom:module_wom_preparematerial')
 //        implementation project(':isupplant-wom:module_wom_producetask')
