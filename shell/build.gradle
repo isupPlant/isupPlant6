@@ -21,7 +21,7 @@ android {
 
     productFlavors {
         dev {
-            applicationId 'com.supcon.supplant.test'
+            applicationId 'com.supcon.supplant'
             manifestPlaceholders = [CHANNEL_VALUE : name,
                                     APP_NAME            : "@string/application_name",
                                     APP_ICON            : "@mipmap/ic_launcher",
@@ -127,19 +127,18 @@ dependencies {
 
         implementation project(':isupplant-patrol:module_xj')
         implementation project(':isupplant-patrol:module_xj_temp')
-//        implementation project(':isupplant-wts:module_wts')
-//        implementation project(':isupplant-ses:module_unsafe')
+        implementation project(':isupplant-wts:module_wts')
+        implementation project(':isupplant-ses:module_unsafe')
         implementation project(':isupplant-ses:module_hazardmanager')
-//        implementation project(':isupplant-ses:module_livevideo')
-//        implementation project(':isupplant-ses:module_emergencymanager')
-//        implementation project(':isupplant-ses:module_drillplan')
-//        implementation project(':isupplant-ses:module_safetycheck')
-//        implementation project(':isupplant-ses:module_comprehensive')
-//        implementation project(':isupplant-wom:module_wom_batchmaterial')
-//        implementation project(':isupplant-wom:module_wom_preparematerial')
-//        implementation project(':isupplant-wom:module_wom_producetask')
-//        implementation project(':isupplant-wom:module_wom_rejectmaterial')
-//        implementation project(':isupplant-wom:module_wom_pending')
+        implementation project(':isupplant-ses:module_livevideo')
+        implementation project(':isupplant-ses:module_emergencymanager')
+        implementation project(':isupplant-ses:module_drillplan')
+        implementation project(':isupplant-ses:module_safetycheck')
+        implementation project(':isupplant-wom:module_wom_batchmaterial')
+        implementation project(':isupplant-wom:module_wom_preparematerial')
+        implementation project(':isupplant-wom:module_wom_producetask')
+        implementation project(':isupplant-wom:module_wom_rejectmaterial')
+        implementation project(':isupplant-wom:module_wom_pending')
         implementation project(':isupplant-eam:module_sbda')
         implementation project(':isupplant-eam:module_wxgd')
         implementation project(':isupplant-eam:module_spare')
@@ -156,13 +155,13 @@ dependencies {
         implementation project(':isupplant-wms:module_wms_wlcx')
         implementation project(':isupplant-wms:module_wms_pk')
 
-//        implementation project(':isupplant-lims:module_lims')
-//        implementation project(':isupplant-lims:module_product')
-//        implementation project(':isupplant-lims:module_incoming')
-//        implementation project(':isupplant-lims:module_other')
-//        implementation project(':isupplant-lims:module_sample')
-//        implementation project(':isupplant-lims:module_retention')
-//        implementation project(':isupplant-psc:module_task')
+        implementation project(':isupplant-lims:module_lims')
+        implementation project(':isupplant-lims:module_product')
+        implementation project(':isupplant-lims:module_incoming')
+        implementation project(':isupplant-lims:module_other')
+        implementation project(':isupplant-lims:module_sample')
+        implementation project(':isupplant-lims:module_retention')
+        implementation project(':isupplant-psc:module_task')
     }
     implementation project(':isupplant-shell:module_login')
     implementation project(':isupplant-shell:module_contact')
