@@ -10,9 +10,9 @@ include ':shell',
 
 /*作业票*/ ':isupplant-wts:module_wts',
 
-/*安环*/ ':isupplant-ses:module_unsafe', ':isupplant-ses:module_hazardmanager', ':isupplant-ses:module_safetycheck',
-':isupplant-ses:module_livevideo', ':isupplant-ses:module_emergencymanager',':isupplant-ses:module_drillplan',
-/*综合展示*/':isupplant-ses:module_comprehensive',
+/*安环*/ ':isupplant-ses-others:module_unsafe', ':isupplant-ses:module_hazardmanager', ':isupplant-ses-others:module_safetycheck',
+':isupplant-ses-others:module_livevideo', ':isupplant-ses-others:module_emergencymanager',':isupplant-ses-others:module_drillplan',
+/*综合展示*/':isupplant-ses-others:module_comprehensive',
 
 /*设备*/ ':isupplant-eam:module_sbda', ':isupplant-eam:module_wxgd',':isupplant-eam:module_pd',':isupplant-eam:module_spare',
 ':isupplant-eam:module_warning',':isupplant-eam:module_yxjl',':isupplant-eam:module_tsd',
