@@ -31,6 +31,6 @@
 [submodule "isupplant-wts"]
 	path = isupplant-wts
 	url = git@192.168.90.160:isupplant-group/isupplant-wts.git
-[submodule "isupplant-ses-others"]
-	path = isupplant-ses-others
-	url = git@192.168.90.160:project-group/isupplant-ses-others.git
+[submodule "isupplant-ses-other"]
+	path = isupplant-ses-other
+	url = git@192.168.90.160:isupplant-group/isupplant-ses-other.git
