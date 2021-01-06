@@ -19,9 +19,6 @@
 [submodule "isupplant-ses"]
 	path = isupplant-ses
 	url = git@192.168.90.160:isupplant-group/isupplant-ses.git
-[submodule "isupplant-videoPush"]
-	path = isupplant-videoPush
-	url = git@192.168.90.160:isupplant-group/isupplant-videoPush.git
 [submodule "isupplant-wms"]
 	path = isupplant-wms
 	url = git@192.168.90.160:isupplant-group/isupplant-wms.git

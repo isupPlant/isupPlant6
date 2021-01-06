@@ -130,7 +130,7 @@ dependencies {
         implementation project(':isupplant-wts:module_wts')
         implementation project(':isupplant-ses-other:module_unsafe')
         implementation project(':isupplant-ses:module_hazardmanager')
-        implementation project(':isupplant-ses-other:module_livevideo')
+        implementation project(':isupplant-shell:module_livevideo')
         implementation project(':isupplant-ses-other:module_emergencymanager')
         implementation project(':isupplant-ses-other:module_drillplan')
         implementation project(':isupplant-ses-other:module_safetycheck')
