@@ -56,7 +56,7 @@ ext{
     routerVersion       = '9.7.29.5'
 
     //9.7.29.5 BAP 5.0对应版本分支
-    mbapVersion          = '9.7.29.5release50'
+    mbapVersion          = '9.7.29.5release54'
 
     nfcVersion          = '9.7.29.5release3'
 
@@ -66,8 +66,8 @@ ext{
     testoVersion        = '9.7.29.5release3'
     sb2Version          = '9.7.29.5release5'
 
-    expert_uhfVersion   = '9.7.29.5debug15'
-    expert_viberVersion = '9.7.29.5debug18'
+    expert_uhfVersion   = '9.7.29.5debug22'
+    expert_viberVersion = '9.7.29.5debug28'
     isAlone  = false
 
 
