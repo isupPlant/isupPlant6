@@ -175,6 +175,7 @@ dependencies {
     implementation project(':isupplant-shell:module_scan')
     implementation project(':isupplant-shell:module_search')
     implementation project(':isupplant-shell:module_iweb_flowchart')
+    implementation project(':isupplant-shell:module_base')
 
 }
 
