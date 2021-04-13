@@ -66,7 +66,7 @@ ext{
     testoVersion        = '9.7.29.5release3'
     sb2Version          = '9.7.29.5release5'
 
-    expert_uhfVersion   = '9.7.29.5'
+    expert_uhfVersion   = '9.7.29.5debug22'
     expert_viberVersion = '9.7.29.5'
     isAlone  = false
 
