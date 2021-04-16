@@ -14,6 +14,7 @@ buildscript {
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.supcon.plugin:apk_plugin:9.7.29.6'
     }
 }
 
@@ -49,28 +50,37 @@ ext{
     EamCode = "01"
     MobileCode = "01"  //移动端测试包名，不足一位加“0”补足
 
-    aptVersion          = '9.7.29.5'
-    annotationVersion   = '9.7.29.5release1'
-    httpVersion         = '9.7.29.5'
-    viewVersion         = '9.7.29.5release16x5'
-    routerVersion       = '9.7.29.5'
+    aptVersion          = '9.7.29.6'
+    annotationVersion   = '9.7.29.6'
+    httpVersion         = '9.7.29.6'
+    viewVersion         = '9.7.29.6'
+    routerVersion       = '9.7.29.6'
 
     //9.7.29.5 BAP 5.0对应版本分支
-    mbapVersion          = '9.7.29.5release54'
+    mbapVersion          = '9.7.29.6'
+    pluginVersion         = '9.7.29.6'
 
-    nfcVersion          = '9.7.29.5release3'
+    nfcVersion          = '9.7.29.5'
 
-    vibrateVersion      = '8.5.911.39debug6'
-    aicVibVersion       = '8.5.911.2debug10'
-    av160Version        = '8.5.911.1debug7'
-    testoVersion        = '9.7.29.5release3'
-    sb2Version          = '9.7.29.5release5'
+    vibrateVersion      = '9.7.29.5'
+    aicVibVersion       = '9.7.29.5'
+    av160Version        = '9.7.29.5'
+    testoVersion        = '9.7.29.5'
+    sb2Version          = '9.7.29.5'
 
-    expert_uhfVersion   = '9.7.29.5debug22'
+    expert_uhfVersion   = '9.7.29.5'
     expert_viberVersion = '9.7.29.5'
     isAlone  = false
 
+    modules = [
+            "APPLICATION_ID":'',
+            "MODULE_NAME" :'',
+            "MODULE_VERSION" : '',
+            "MODULE_VERSION_CODE":1,
+            "RES_ID":0x31
+    ]
 
+    isPatch = false
 
 
 }
