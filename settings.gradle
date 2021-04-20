@@ -2,10 +2,10 @@ include ':shell',
 /*框架*/ ':isupplant-shell:module_push', ':isupplant-shell:middleware', ':isupplant-shell:module_search', ':isupplant-shell:home',
 ':isupplant-shell:module_contact', ':isupplant-shell:module_login', ':isupplant-shell:module_webview',  ':isupplant-shell:module_scan',
 ':isupplant-shell:module_map', ':isupplant-shell:module_data_manage',':isupplant-shell:module_iweb_flowchart',
-':isupplant-shell:module_livevideo',':isupplant-shell:isupplant-videoPush',':isupplant-shell:module_base',
+':isupplant-shell:module_livevideo',':isupplant-shell:isupplant-videoPush',':isupplant-shell:module_base',':isupplant-shell:module_ble',
 /*综合展示*/':isupplant-shell:module_comprehensive',
 
-/*巡检*/':isupplant-patrol:module_xj',':isupplant-patrol:module_xj_temp',
+/*巡检*/':isupplant-patrol:module_xj',':isupplant-patrol:module_xj_temp',':isupplant-patrol:module_defectmanage',
 
 
 /*连续生产*/ ':isupplant-psc:module_task',
