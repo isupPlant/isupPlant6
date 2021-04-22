@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat
 
 apply plugin: 'com.android.application'
-
+//apply plugin: 'com.supcon.plugin.host'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -63,10 +63,11 @@ android {
 
     signingConfigs {
         keystore {
+            storePassword '123456'
             keyAlias 'mobile'
-            keyPassword '123456'
+            keyPassword '654321'
             storeFile file('./mobile.jks')
-            storePassword '654321'
+
         }
     }
 
@@ -112,7 +113,9 @@ android {
 //    configurations.all {
 //        resolutionStrategy.force 'com.google.code.gson:gson:2.8.2'
 //    }
-
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -130,11 +133,10 @@ dependencies {
         implementation project(':isupplant-wts:module_wts')
         implementation project(':isupplant-ses-other:module_unsafe')
         implementation project(':isupplant-ses:module_hazardmanager')
-        implementation project(':isupplant-shell:module_livevideo')
         implementation project(':isupplant-ses-other:module_emergencymanager')
         implementation project(':isupplant-ses-other:module_drillplan')
         implementation project(':isupplant-ses-other:module_safetycheck')
-        implementation project(':isupplant-shell:module_comprehensive')
+
         implementation project(':isupplant-wom:module_wom_batchmaterial')
         implementation project(':isupplant-wom:module_wom_preparematerial')
         implementation project(':isupplant-wom:module_wom_producetask')
@@ -176,7 +178,8 @@ dependencies {
     implementation project(':isupplant-shell:module_search')
     implementation project(':isupplant-shell:module_iweb_flowchart')
     implementation project(':isupplant-shell:module_base')
-
+    implementation project(':isupplant-shell:module_comprehensive')
+    implementation project(':isupplant-shell:module_livevideo')
 }
 
 static def releaseTime() {
