@@ -1,0 +1,168 @@
+
+if(rootProject.ext.isPatch){
+    apply plugin: 'com.supcon.plugin.apkplugin'
+
+    pluginApk {
+        packageId = rootProject.ext.modules["RES_ID"] // the package id of Resources.
+        targetHost = '../../shell' // the path of application module in host project.
+        applyHostMapping = true //optional, default value: true.
+        forceUseHostDependences = true
+    }
+}
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        if(rootProject.ext.isPatch){
+            applicationId rootProject.ext.modules["APPLICATION_ID"]
+            versionCode rootProject.ext.modules["MODULE_VERSION_CODE"]
+            versionName "${rootProject.ext.modules["MODULE_VERSION"]}"
+        }
+        else{
+            versionCode rootProject.ext.versionCode
+            versionName rootProject.ext.versionName
+        }
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        if(rootProject.ext.isPatch){
+            ndk{
+                abiFilters "x86"/*,"armeabi-v7a", "armeabi" ,"aarch64"*/
+            }
+        }
+        else{
+            ndk{
+                abiFilters "x86","armeabi-v7a", "armeabi" ,"aarch64"
+            }
+
+        }
+
+    }
+
+    signingConfigs {
+        keystore {
+            storeFile file('../../shell/mobile.jks')
+            storePassword '123456'
+            keyAlias 'mobile'
+            keyPassword '654321'
+            v1SigningEnabled true       //对JAR签名
+            v2SigningEnabled true       //对APK签名
+        }
+    }
+
+    buildTypes {
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "String","MODULE_NAME","\"${rootProject.ext.modules['MODULE_NAME']}\""
+            multiDexEnabled true
+
+            if(rootProject.ext.isPatch){
+                signingConfig signingConfigs.keystore
+                applicationVariants.all { variant ->
+                    variant.outputs.all {
+                        outputFileName = "${rootProject.ext.modules['MODULE_NAME']}_${rootProject.ext.modules['MODULE_VERSION']}.apk"
+                    }
+                }
+                postprocessing {
+                    removeUnusedCode false
+                    removeUnusedResources false
+                    obfuscate false
+                    optimizeCode false
+                    proguardFile '../../shell/proguard-rules.pro'
+                }
+            }
+            else{
+
+            }
+            multiDexEnabled true
+
+//            minifyEnabled true
+            zipAlignEnabled true//是否进行zipalign优化
+//            shrinkResources true// 移除无用的resource文件
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../../shell/proguard-rules.pro'
+        }
+        debug {
+
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "String","MODULE_NAME","\"${rootProject.ext.modules['MODULE_NAME']}\""
+            multiDexEnabled true
+            zipAlignEnabled true//是否进行zipalign优化
+        }
+    }
+
+//    buildTypes {
+//        release {
+//            buildConfigField "boolean", "LOG_DEBUG", "false"
+//            buildConfigField "String","MODULE_NAME","\"${rootProject.ext.modules['MODULE_NAME']}\""
+//            minifyEnabled true
+//            multiDexEnabled true
+//            signingConfig signingConfigs.keystore
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../../shell/proguard-rules.pro'
+//        }
+//        debug{
+//            buildConfigField "boolean", "LOG_DEBUG", "true"
+//            buildConfigField "String","MODULE_NAME","\"${rootProject.ext.modules['MODULE_NAME']}\""
+//            multiDexEnabled true
+//        }
+//    }
+
+    //支持Java8
+    defaultConfig.javaCompileOptions {
+        annotationProcessorOptions {
+            includeCompileClasspath = true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+public class ModuleTool{
+    static def getModuleNames(folderPath){
+
+        List<String> modules =  findModules(folderPath)
+        StringBuilder moduleNames = new StringBuilder()
+        for(String module: modules){
+            moduleNames.append(module)
+            moduleNames.append(",")
+        }
+        if(moduleNames.length()!=0){
+            moduleNames.deleteCharAt(moduleNames.length()-1)
+            println(moduleNames.toString())
+
+        }
+
+        return moduleNames.toString()
+    }
+
+    static def findModules(path) {
+        File moduleFolder = new File(path.toString())
+        Set<String> ignoreFolders = new HashSet<>()
+        ignoreFolders.add(".git")
+        ignoreFolders.add("libs")
+        ignoreFolders.add("build")
+        ignoreFolders.add("patrol-plugin")
+
+        //在这里添加要过滤的文件夹
+
+        List<String> modules = new ArrayList<>()
+        for(File module:moduleFolder.listFiles()){
+
+            if(module.isFile() || ignoreFolders.contains(module.getName())){
+                continue
+            }
+            modules.add(module.getName())
+        }
+        return modules
+    }
+}
+
