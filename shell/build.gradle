@@ -213,7 +213,7 @@ def getIncludeFiles(gitFilePath, ignoreFolders) {
         File[] fileList = folder.listFiles()
         if (fileList != null && fileList.size() > 0) {
             for (File file:fileList) {
-                if (file.isDirectory() && !ignoreFolders.contains(file.name)){
+                if (file.isDirectory() && !(ignoreFolders.contains(file.name) || file.name.contains("plugin"))){
                     modules.add(':'+gitFilePath+':' + file.name)
                 }
             }
