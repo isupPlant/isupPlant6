@@ -2,7 +2,8 @@ include ':shell'
 include/*框架*/ ':isupplant-shell:module_push', ':isupplant-shell:middleware', ':isupplant-shell:module_search', ':isupplant-shell:home',
 ':isupplant-shell:module_contact', ':isupplant-shell:module_login', ':isupplant-shell:module_webview',  ':isupplant-shell:module_scan',
 ':isupplant-shell:module_map', ':isupplant-shell:module_data_manage',':isupplant-shell:module_iweb_flowchart',
-':isupplant-shell:module_livevideo',':isupplant-shell:isupplant-videoPush',':isupplant-shell:module_base',/*综合展示*/':isupplant-shell:module_comprehensive'
+':isupplant-shell:module_livevideo',':isupplant-shell:isupplant-videoPush',':isupplant-shell:module_base',
+/*综合展示*/':isupplant-shell:module_comprehensive'
 
 include/*作业票*/ ':isupplant-wts:module_wts'
 
