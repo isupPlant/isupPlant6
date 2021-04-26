@@ -1,32 +1,67 @@
 include ':shell'
-include/*框架*/ ':isupplant-shell:module_push', ':isupplant-shell:middleware', ':isupplant-shell:module_search', ':isupplant-shell:home',
-':isupplant-shell:module_contact', ':isupplant-shell:module_login', ':isupplant-shell:module_webview',  ':isupplant-shell:module_scan',
-':isupplant-shell:module_map', ':isupplant-shell:module_data_manage',':isupplant-shell:module_iweb_flowchart',
-':isupplant-shell:module_livevideo',':isupplant-shell:isupplant-videoPush',':isupplant-shell:module_base',
-/*综合展示*/':isupplant-shell:module_comprehensive'
+//框架 isupplant-shell
+//作业票 isupplant-wts
+//安环 isupplant-ses-other
+//隐患 isupplant-ses
+//设备 isupplant-eam
+//巡检 isupplant-patrol
+//仓库 isupplant-wms
+//工单 isupplant-wom
+//造纸 isupplant-paper
+//实验室 isupplant-lims
+//连续生产 isupplant-psc
 
-include/*作业票*/ ':isupplant-wts:module_wts'
 
-include/*安环*/ ':isupplant-ses-other:module_unsafe',  ':isupplant-ses-other:module_safetycheck', ':isupplant-ses-other:module_emergencymanager',
-        ':isupplant-ses-other:module_drillplan'
+includeModules()
 
-include/*隐患*/ ':isupplant-ses:module_hazardmanager'
 
-include/*设备*/ ':isupplant-eam:module_sbda', ':isupplant-eam:module_wxgd',':isupplant-eam:module_pd',':isupplant-eam:module_spare',
-        ':isupplant-eam:module_warning',':isupplant-eam:module_yxjl',':isupplant-eam:module_tsd',':isupplant-eam:eam-plugin'
+def includeModules() {
 
-include/*巡检*/ ':isupplant-patrol:module_xj',':isupplant-patrol:module_xj_temp',':isupplant-patrol:patrol-plugin'
+    boolean isPatchMode =  "true".equals(IS_PATCH_MODE.trim())
+    println("IS_PATCH_MODE:"+isPatchMode)
+    String[] folders = null
+    if( isPatchMode){
+        folders = ["isupplant-shell"/*, "isupplant-wts", "isupplant-paper", "isupplant-eam",
+                   "isupplant-patrol", "isupplant-wms", "isupplant-wom", "isupplant-lims", "isupplant-psc" ,
+                   "isupplant-ses", "isupplant-ses-other"*/]
+    }
+    else{
+        folders = ["isupplant-shell", "isupplant-wts", "isupplant-paper", "isupplant-eam",
+                   "isupplant-patrol", "isupplant-wms", "isupplant-wom", "isupplant-lims", "isupplant-psc" ,
+                   "isupplant-ses", "isupplant-ses-other"]
+    }
 
-include/*仓库*/ ':isupplant-wms:module_wms_pk', ':isupplant-wms:module_wms', ':isupplant-wms:module_wms_wlcx', ':isupplant-wms:module_wms_cgrk',
-        ':isupplant-wms:module_wms_produce', ':isupplant-wms:module_wms_other', ':isupplant-wms:module_wms_sale', ':isupplant-wms:module_wms_hwtz'
+    Set<String> ignoreFolders = new HashSet<>()
+    ignoreFolders.add(".git")
+    ignoreFolders.add("libs")
+    ignoreFolders.add("build")
+    ignoreFolders.add("module_ble")
+    ignoreFolders.add("module_wom_ble")
+    //在这里添加要过滤的文件夹
 
-include/*工单*/ ':isupplant-wom:module_wom_producetask', ':isupplant-wom:module_wom_batchmaterial', ':isupplant-wom:module_wom_preparematerial',
-        ':isupplant-wom:module_wom_rejectmaterial', ':isupplant-wom:module_wom_pending'
+    List<String> modules = new ArrayList<>()
+    for(String folder:folders){
+        modules.addAll(getIncludeFiles(folder, ignoreFolders))
+    }
+    for(String module : modules){
+        include module
+    }
+}
 
-include/*造纸*/ ':isupplant-paper:module_pmo',':isupplant-paper:module_refer', ':isupplant-paper:module_hcgl'
+def getIncludeFiles(gitFolderPath, ignoreFolders) {
+    File folder = new File(gitFolderPath)
+    List<String> modules = new ArrayList<>()
+    if (folder.exists()) {
+        File[] fileList = folder.listFiles()
+        if (fileList != null && fileList.size() > 0) {
+            for (File file:fileList) {
+                if (file.isDirectory() && !ignoreFolders.contains(file.name)){
+                    modules.add(':'+gitFolderPath+':' + file.name)
+                }
+            }
 
-include/*实验室*/ ':isupplant-lims:module_product',':isupplant-lims:module_incoming',':isupplant-lims:module_lims',':isupplant-lims:module_other',
-        ':isupplant-lims:module_sample',':isupplant-lims:module_retention'
+        }
+    }
+    return modules;
 
-include/*连续生产*/ ':isupplant-psc:module_task'
-
+}
