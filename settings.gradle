@@ -1,18 +1,38 @@
 include ':shell'
-//框架 isupplant-shell
-//作业票 isupplant-wts
-//安环 isupplant-ses-other
-//隐患 isupplant-ses
-//设备 isupplant-eam
-//巡检 isupplant-patrol
-//仓库 isupplant-wms
-//工单 isupplant-wom
-//造纸 isupplant-paper
-//实验室 isupplant-lims
-//连续生产 isupplant-psc
+
+include /*框架*/':isupplant-shell:module_login',':isupplant-shell:module_contact',':isupplant-shell:home',':isupplant-shell:module_webview',
+':isupplant-shell:module_map',':isupplant-shell:middleware',':isupplant-shell:module_data_manage',':isupplant-shell:module_push',
+':isupplant-shell:module_scan',':isupplant-shell:module_search',':isupplant-shell:module_iweb_flowchart',':isupplant-shell:module_base',
+':isupplant-shell:module_comprehensive',':isupplant-shell:module_livevideo', ':isupplant-shell:isupplant-videoPush'
+
+include /*设备*/ ':isupplant-eam:module_eam_base',':isupplant-eam:module_sbda',':isupplant-eam:module_tsd', ':isupplant-eam:module_wxgd',':isupplant-eam:module_pd',':isupplant-eam:module_spare',
+        ':isupplant-eam:module_warning',':isupplant-eam:module_yxjl',':isupplant-eam:module_base',':isupplant-eam:eam-plugin'
+
+include /*巡检*/ ':isupplant-patrol:module_xj',':isupplant-patrol:module_xj_temp',':isupplant-patrol:patrol-plugin'
+
+include/*作业票*/ ':isupplant-wts:module_wts'
+
+include/*仓库*/ ':isupplant-wms:module_wms_pk', ':isupplant-wms:module_wms', ':isupplant-wms:module_wms_wlcx', ':isupplant-wms:module_wms_cgrk',
+        ':isupplant-wms:module_wms_produce', ':isupplant-wms:module_wms_other', ':isupplant-wms:module_wms_sale', ':isupplant-wms:module_wms_hwtz'
+
+include/*安环*/ ':isupplant-ses-other:module_unsafe',  ':isupplant-ses-other:module_safetycheck', ':isupplant-ses-other:module_emergencymanager',
+        ':isupplant-ses-other:module_drillplan'
+
+include/*隐患*/ ':isupplant-ses:module_hazardmanager'
+
+include/*工单*/ ':isupplant-wom:module_wom_producetask', ':isupplant-wom:module_wom_batchmaterial', ':isupplant-wom:module_wom_preparematerial',
+        ':isupplant-wom:module_wom_rejectmaterial', ':isupplant-wom:module_wom_pending'
+
+include/*造纸*/ ':isupplant-paper:module_pmo',':isupplant-paper:module_refer', ':isupplant-paper:module_hcgl'
+
+include/*实验室*/ ':isupplant-lims:module_product',':isupplant-lims:module_incoming',':isupplant-lims:module_lims',':isupplant-lims:module_other',
+        ':isupplant-lims:module_sample',':isupplant-lims:module_retention'
+
+include/*连续生产*/ ':isupplant-psc:module_task'
 
 
-includeModules()
+
+//includeModules()
 
 
 def includeModules() {
@@ -21,12 +41,10 @@ def includeModules() {
     println("IS_PATCH_MODE:"+isPatchMode)
     String[] folders = null
     if( isPatchMode){
-        folders = ["isupplant-shell"/*, "isupplant-wts", "isupplant-paper", "isupplant-eam",
-                   "isupplant-patrol", "isupplant-wms", "isupplant-wom", "isupplant-lims", "isupplant-psc" ,
-                   "isupplant-ses", "isupplant-ses-other"*/]
+        folders = ["isupplant-eam", "isupplant-patrol"]
     }
     else{
-        folders = ["isupplant-shell", "isupplant-wts", "isupplant-paper", "isupplant-eam",
+        folders = ["isupplant-wts", "isupplant-paper", "isupplant-eam",
                    "isupplant-patrol", "isupplant-wms", "isupplant-wom", "isupplant-lims", "isupplant-psc" ,
                    "isupplant-ses", "isupplant-ses-other"]
     }
@@ -45,6 +63,7 @@ def includeModules() {
     }
     for(String module : modules){
         include module
+        println("include "+module)
     }
 }
 

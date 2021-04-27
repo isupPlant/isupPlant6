@@ -93,7 +93,7 @@ android {
             }
 
             //是否进行zipalign优化
-            zipAlignEnabled true
+            zipAlignEnabled false
             // 移除无用的resource文件
             shrinkResources false
         }
@@ -129,80 +129,27 @@ dependencies {
     testImplementation 'junit:junit:4.13-beta-3'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
     List<String> modules = new ArrayList<>()
-    String[] folders = null
-    println("isPatchMode: "+rootProject.ext.isPatchMode)
     if (rootProject.ext.isPatchMode) {
         //Do things while compile mode is Alone-Mode
-        folders = ["isupplant-shell"/*, "isupplant-wts", "isupplant-paper", "isupplant-eam",
-                   "isupplant-patrol", "isupplant-wms", "isupplant-wom", "isupplant-lims", "isupplant-psc" ,
-                   "isupplant-ses", "isupplant-ses-other"*/]
+
+        String[] folders = [ "isupplant-shell"]
+        modules.addAll(includeModules(folders))
+        for(String module:modules){
+            implementation findProject(module)
+            println("implementation "+module)
+        }
 
     } else {
-//        implementation project(':isupplant-patrol:module_xj')
-//        implementation project(':isupplant-patrol:module_xj_temp')
-//        implementation project(':isupplant-wts:module_wts')
-//        implementation project(':isupplant-ses-other:module_unsafe')
-//        implementation project(':isupplant-ses:module_hazardmanager')
-//        implementation project(':isupplant-ses-other:module_emergencymanager')
-//        implementation project(':isupplant-ses-other:module_drillplan')
-//        implementation project(':isupplant-ses-other:module_safetycheck')
-//
-//        implementation project(':isupplant-wom:module_wom_batchmaterial')
-//        implementation project(':isupplant-wom:module_wom_preparematerial')
-//        implementation project(':isupplant-wom:module_wom_producetask')
-//        implementation project(':isupplant-wom:module_wom_rejectmaterial')
-//        implementation project(':isupplant-wom:module_wom_pending')
-//        implementation project(':isupplant-eam:module_sbda')
-//        implementation project(':isupplant-eam:module_wxgd')
-//        implementation project(':isupplant-eam:module_spare')
-//        implementation project(':isupplant-eam:module_pd')
-//        implementation project(':isupplant-eam:module_yxjl')
-//        implementation project(':isupplant-eam:module_warning')
-//        implementation project(':isupplant-eam:module_tsd')
-//        implementation project(':isupplant-wms:module_wms')
-//        implementation project(':isupplant-wms:module_wms_cgrk')
-//        implementation project(':isupplant-wms:module_wms_produce')
-//        implementation project(':isupplant-wms:module_wms_other')
-//        implementation project(':isupplant-wms:module_wms_sale')
-//        implementation project(':isupplant-wms:module_wms_hwtz')
-//        implementation project(':isupplant-wms:module_wms_wlcx')
-//        implementation project(':isupplant-wms:module_wms_pk')
-//
-//        implementation project(':isupplant-lims:module_lims')
-//        implementation project(':isupplant-lims:module_product')
-//        implementation project(':isupplant-lims:module_incoming')
-//        implementation project(':isupplant-lims:module_other')
-//        implementation project(':isupplant-lims:module_sample')
-//        implementation project(':isupplant-lims:module_retention')
-//        implementation project(':isupplant-psc:module_task')
-
-        folders = ["isupplant-shell", "isupplant-wts", "isupplant-paper", "isupplant-eam",
+        String[] folders = ["isupplant-shell", "isupplant-wts", "isupplant-paper", "isupplant-eam",
                    "isupplant-patrol", "isupplant-wms", "isupplant-wom", "isupplant-lims", "isupplant-psc" ,
                    "isupplant-ses", "isupplant-ses-other"]
+        modules.addAll(includeModules(folders))
+        for(String module:modules){
+            implementation findProject(module)
+            println("implementation "+module)
+        }
     }
-//    implementation project(':isupplant-shell:module_login')
-//    implementation project(':isupplant-shell:module_contact')
-//    implementation project(':isupplant-shell:home')
-//    implementation project(':isupplant-shell:module_webview')
-//    implementation project(':isupplant-shell:module_map')
-//    implementation project(':isupplant-shell:middleware')
-//    implementation project(':isupplant-shell:module_data_manage')
-//    implementation project(':isupplant-shell:module_push')
-//    implementation project(':isupplant-shell:module_scan')
-//    implementation project(':isupplant-shell:module_search')
-//    implementation project(':isupplant-shell:module_iweb_flowchart')
-//    implementation project(':isupplant-shell:module_base')
-//    implementation project(':isupplant-shell:module_comprehensive')
-//    implementation project(':isupplant-shell:module_livevideo')
-
-    modules.addAll(includeModules(folders))
-    for(String module:modules){
-        implementation project(module)
-        println("implementation "+module)
-    }
-
 }
 
 
@@ -219,14 +166,12 @@ def includeModules(folders) {
 
     List<String> modules = new ArrayList<>()
     for(String folder:folders){
-        println("folder:"+folder)
         modules.addAll(getImplFiles(folder, ignoreFolders))
     }
     return modules;
 }
 
 def getImplFiles(gitFilePath, ignoreFolders) {
-    println("gitFilePath:"+gitFilePath)
     File folder = new File(gitFilePath)
     List<String> modules = new ArrayList<>()
     if (folder.exists()) {
