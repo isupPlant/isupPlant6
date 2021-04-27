@@ -77,8 +77,14 @@ ext{
             "MODULE_NAME" :'',
             "MODULE_VERSION" : '',
             "MODULE_VERSION_CODE":1,
-            "RES_ID":0x31
+            "RES_ID":0x31,
+            "MODULE_LIST" :'',
+            "FOLDER_NAME" :'',
+            "FOLDER_PATH" :''
     ]
+
+
+    isPatchMode = "true".equals(IS_PATCH_MODE.trim())
 
     isPatch = false
 

@@ -1,4 +1,47 @@
 
+init(rootProject.ext.modules["FOLDER_PATH"])
+def init(path){
+    String moduleList = getModuleNames(path)
+//    patchModules = moduleList gradle.properties存储
+    rootProject.ext.modules["MODULE_LIST"] = moduleList
+}
+
+static def getModuleNames(folder){
+    List<String> modules =  findModules(folder)
+    StringBuilder moduleNames = new StringBuilder()
+    for(String module: modules){
+        moduleNames.append(module)
+        moduleNames.append(",")
+    }
+    if(moduleNames.length()!=0){
+        moduleNames.deleteCharAt(moduleNames.length()-1)
+        println("getModuleNames "+moduleNames.toString())
+
+    }
+    return moduleNames.toString()
+}
+
+static def findModules(path) {
+    File moduleFolder = new File(path.toString())
+    Set<String> ignoreFolders = new HashSet<>()
+    ignoreFolders.add(".git")
+    ignoreFolders.add("libs")
+    ignoreFolders.add("build")
+    ignoreFolders.add("patrol-plugin")
+
+    //在这里添加要过滤的文件夹
+
+    List<String> modules = new ArrayList<>()
+    for(File module:moduleFolder.listFiles()){
+
+        if(module.isFile() || ignoreFolders.contains(module.getName()) || module.getName().contains("-plugin")){
+            continue
+        }
+        modules.add(module.getName())
+    }
+    return modules
+}
+
 if(rootProject.ext.isPatch){
     apply plugin: 'com.supcon.plugin.apkplugin'
 
@@ -126,43 +169,52 @@ android {
     }
 }
 
-public class ModuleTool{
-    static def getModuleNames(folderPath){
-
-        List<String> modules =  findModules(folderPath)
-        StringBuilder moduleNames = new StringBuilder()
-        for(String module: modules){
-            moduleNames.append(module)
-            moduleNames.append(",")
-        }
-        if(moduleNames.length()!=0){
-            moduleNames.deleteCharAt(moduleNames.length()-1)
-            println(moduleNames.toString())
-
-        }
-
-        return moduleNames.toString()
-    }
-
-    static def findModules(path) {
-        File moduleFolder = new File(path.toString())
-        Set<String> ignoreFolders = new HashSet<>()
-        ignoreFolders.add(".git")
-        ignoreFolders.add("libs")
-        ignoreFolders.add("build")
-        ignoreFolders.add("patrol-plugin")
-
-        //在这里添加要过滤的文件夹
-
-        List<String> modules = new ArrayList<>()
-        for(File module:moduleFolder.listFiles()){
-
-            if(module.isFile() || ignoreFolders.contains(module.getName())){
-                continue
-            }
-            modules.add(module.getName())
-        }
-        return modules
+dependencies {
+    List<String> modules = findModules(rootProject.ext.modules["FOLDER_PATH"])
+    String folderName = rootProject.ext.modules["FOLDER_NAME"]
+    for(String module: modules){
+        implementation project(':'+folderName+':'+module)
+        println('implementation:'+folderName+':'+module)
     }
 }
+
+//public class ModuleTool{
+//    static def getModuleNames(folderPath){
+//
+//        List<String> modules =  findModules(folderPath)
+//        StringBuilder moduleNames = new StringBuilder()
+//        for(String module: modules){
+//            moduleNames.append(module)
+//            moduleNames.append(",")
+//        }
+//        if(moduleNames.length()!=0){
+//            moduleNames.deleteCharAt(moduleNames.length()-1)
+//            println(moduleNames.toString())
+//
+//        }
+//
+//        return moduleNames.toString()
+//    }
+
+//    static def findModules(path) {
+//        File moduleFolder = new File(path.toString())
+//        Set<String> ignoreFolders = new HashSet<>()
+//        ignoreFolders.add(".git")
+//        ignoreFolders.add("libs")
+//        ignoreFolders.add("build")
+//        ignoreFolders.add("patrol-plugin")
+//
+//        //在这里添加要过滤的文件夹
+//
+//        List<String> modules = new ArrayList<>()
+//        for(File module:moduleFolder.listFiles()){
+//
+//            if(module.isFile() || ignoreFolders.contains(module.getName())){
+//                continue
+//            }
+//            modules.add(module.getName())
+//        }
+//        return modules
+//    }
+//}
 

@@ -45,6 +45,11 @@
             android:value="${PACKAGE_NAME}"
             android:name="PACKAGE_NAME"/>
 
+        <meta-data
+            android:value="${IS_PATCH_MODE}"
+            android:name="IS_PATCH_MODE"/>
+
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
