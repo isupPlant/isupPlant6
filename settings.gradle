@@ -8,7 +8,7 @@ include /*框架*/':isupplant-shell:module_login',':isupplant-shell:module_conta
 include /*设备*/ ':isupplant-eam:module_eam_base',':isupplant-eam:module_sbda',':isupplant-eam:module_tsd', ':isupplant-eam:module_wxgd',':isupplant-eam:module_pd',':isupplant-eam:module_spare',
         ':isupplant-eam:module_warning',':isupplant-eam:module_yxjl',':isupplant-eam:module_base',':isupplant-eam:eam-plugin'
 
-include /*巡检*/ ':isupplant-patrol:module_xj',':isupplant-patrol:module_xj_temp',':isupplant-patrol:patrol-plugin'
+include /*巡检*/ ':isupplant-patrol:module_xj',':isupplant-patrol:module_xj_temp',':isupplant-patrol:patrol-plugin',':isupplant-patrol:module_defectmanage'
 
 include/*作业票*/ ':isupplant-wts:module_wts'
 
