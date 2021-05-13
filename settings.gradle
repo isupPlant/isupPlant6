@@ -21,7 +21,7 @@ include/*安环*/ ':isupplant-ses-other:module_unsafe',  ':isupplant-ses-other:m
 include/*隐患*/ ':isupplant-ses:module_hazardmanager'
 
 include/*工单*/ ':isupplant-wom:module_wom_producetask', ':isupplant-wom:module_wom_batchmaterial', ':isupplant-wom:module_wom_preparematerial',
-        ':isupplant-wom:module_wom_rejectmaterial', ':isupplant-wom:module_wom_pending'
+        ':isupplant-wom:module_wom_rejectmaterial', ':isupplant-wom:module_wom_pending', ':isupplant-wom:module_wom_replenishmaterial'
 
 include/*造纸*/ ':isupplant-paper:module_pmo',':isupplant-paper:module_refer', ':isupplant-paper:module_hcgl'
 
