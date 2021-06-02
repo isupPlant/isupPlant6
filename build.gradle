@@ -10,11 +10,11 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:3.3.2'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath 'com.supcon.plugin:apk_plugin:9.7.29.6'
+//        classpath 'com.supcon.plugin:apk_plugin:9.7.29.6'
     }
 }
 
@@ -46,7 +46,7 @@ ext{
     versionCode = 6 // 2019/11/12 2020/04/22 2020/06/10 2020/08/31 2020/9/23 2020/10/30
     versionName = "6.0.0.0"
 
-    ProductCode = "V6.0.0.0-201130-C"  //"V6.0.0.0-201130-C" "V5.2.0.0-200918-C" "V5.1.2.1-200831-C" "V5.1.0.0-200715-C" //V5.0.0.0-200103-C V5.0.0.1-200422-C V5.0.4.1-200610-C
+    ProductCode = "V6.0.0.0-210601-C"  //"V6.0.0.0-201130-C" "V5.2.0.0-200918-C" "V5.1.2.1-200831-C" "V5.1.0.0-200715-C" //V5.0.0.0-200103-C V5.0.0.1-200422-C V5.0.4.1-200610-C
     EamCode = "01"
     MobileCode = "01"  //移动端测试包名，不足一位加“0”补足
 
@@ -70,6 +70,7 @@ ext{
 
     expert_uhfVersion   = '9.7.29.5'
     expert_viberVersion = '9.7.29.5'
+    scaleVersion        = "9.7.29.5"
     isAlone  = false
 
     modules = [
