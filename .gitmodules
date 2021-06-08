@@ -31,3 +31,6 @@
 [submodule "isupplant-ses-other"]
 	path = isupplant-ses-other
 	url = git@192.168.90.160:isupplant-group/isupplant-ses-other.git
+[submodule "suplink"]
+	path = suplink
+	url = git@192.168.90.160:isupplant-group/suplink.git

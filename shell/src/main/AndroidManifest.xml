@@ -14,10 +14,15 @@
         android:theme="@style/AppTheme"
         android:networkSecurityConfig="@xml/network_config"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:replace="android:allowBackup, android:label, android:name">
+        tools:replace="android:allowBackup, android:label, android:name,android:networkSecurityConfig,android:theme">
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="708065af8d52adc2c3ebff76e449c73d"
+            tools:replace="android:value"/>
 
         <meta-data android:name="android.max_aspect"
-            android:value="2.1" />
+            android:value="2.1" tools:replace="android:value"/>
 
         <meta-data
             android:name="APP_SHARE_ID"
@@ -54,10 +59,12 @@
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:grantUriPermissions="true"
+            tools:replace="android:authorities"
             android:exported="false">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+                android:resource="@xml/file_paths"
+                tools:replace="android:resource"/>
         </provider>
 
     </application>

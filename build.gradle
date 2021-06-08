@@ -5,6 +5,8 @@ buildscript {
     repositories {
         maven { url 'http://192.168.90.70:8888/nexus/content/groups/supcon_mes' }
         maven { url "https://jitpack.io" }
+        maven { url 'https://developer.huawei.com/repo/' }
+
         google()
         mavenCentral()
         jcenter()
@@ -15,6 +17,8 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.supcon.plugin:apk_plugin:9.7.29.6'
+        classpath 'com.huawei.agconnect:agcp:1.4.2.300'
+
     }
 }
 
@@ -24,6 +28,8 @@ allprojects {
         google()
         maven { url 'http://192.168.90.70:8888/nexus/content/groups/supcon_mes' }
         maven { url "https://jitpack.io" }
+        maven { url 'https://developer.huawei.com/repo/' }
+        maven { url 'https://repo1.maven.org/maven2/' }
         mavenCentral()
         jcenter()
         flatDir {
@@ -41,7 +47,7 @@ ext{
     buildToolsVersion = "29.0.2"
     applicationId = "com.supcon.supplant"
 
-    minSdkVersion = 19
+    minSdkVersion = 21
     targetSdkVersion = 26
     versionCode = 6 // 2019/11/12 2020/04/22 2020/06/10 2020/08/31 2020/9/23 2020/10/30
     versionName = "6.0.0.0"
@@ -89,5 +95,32 @@ ext{
 
     isPatch = false
 
+
+    //suplink
+    //zz
+    common_versionName = "common 1.0"
+    utils_versionName = "utils 1.0"
+    qrversionName="qr 1.0"
+    contactversionName="contact 1.0"
+    weexlib_versionName="weexlib 1.0"
+    webviewjs_versionName="webviewjs 1.0"
+    fastjsonLibVersion="1.1.46.android"
+    glideLibVersion="4.9.0"
+    eventbusLibVersion="3.0.0"
+    lubanLibVersion="1.1.8"
+    googleGsonLibVersion="2.3.1"
+    butterKnifeLibVersion="8.5.1"
+    junitLibVersion="4.12"
+    constraintLibVersion="1.0.2"
+    tinypinyinLibVersion="2.0.3"
+    greenDaoLibVersion="3.2.0"
+    okhttpLibVersion="2.3.0"
+    okioLibVersion="1.0.1"
+    picassoLibVersion="2.5.2"
+    weexInspectorLibVersion="0.10.0.5"
+    weexSdkLibVersion="0.16.0"
+    findbugsLibVersion="2.0.1"
+    weexpluginLibVersion="1.3"
+    zxingLibVersion="3.2.1"
 
 }

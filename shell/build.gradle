@@ -121,6 +121,12 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    packagingOptions {
+        exclude 'androidsupportmultidexversion.txt'
+        exclude 'lib/armeabi-v7a/libyuv.so'
+        exclude 'res/values-zh/values-zh.xml'
+    }
 }
 
 dependencies {
