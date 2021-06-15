@@ -23,7 +23,7 @@ android {
 
     productFlavors {
         dev {
-            applicationId 'com.supcon.supplant'
+            applicationId 'com.supcon.supplantTest'
             manifestPlaceholders = [CHANNEL_VALUE : name,
                                     APP_NAME            : "@string/application_name",
                                     APP_ICON            : "@mipmap/ic_launcher",
@@ -32,7 +32,7 @@ android {
                                     XG_ACCESS_ID : "2100348528",
                                     XG_ACCESS_KEY: "A992GPQ3MU2H",
                                     HW_APPID: "101399227",
-                                    PACKAGE_NAME:"com.supcon.supplant",
+                                    PACKAGE_NAME:"com.supcon.supplantTest",
                                     IS_PATCH_MODE:rootProject.ext.isPatchMode
             ]
         }
@@ -178,7 +178,9 @@ def getImplFiles(gitFilePath, ignoreFolders) {
         File[] fileList = folder.listFiles()
         if (fileList != null && fileList.size() > 0) {
             for (File file:fileList) {
-                if (file.isDirectory() && !(ignoreFolders.contains(file.name) || file.name.contains("plugin"))){
+                println("------------ "+file.path)
+                if (file.isDirectory() && !(ignoreFolders.contains(file.name) || file.name.contains("plugin")) && file.list().contains("src")){
+                    println("------------"+file.list().contains("src"))
                     modules.add(':'+gitFilePath+':' + file.name)
                 }
             }
