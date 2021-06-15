@@ -26,7 +26,7 @@ android {
             applicationId 'com.supcon.supplant'
             manifestPlaceholders = [CHANNEL_VALUE : name,
                                     APP_NAME            : "@string/application_name",
-                                    APP_ICON            : "@mipmap/ic_launcher",
+                                    APP_ICON            : "@drawable/ic_app_launcher",
                                     APP_ROUND_ICON      : "@drawable/ic_app_launcher_round",
                                     APP_SHARE_ID        : "com.supcon.supplant",
                                     XG_ACCESS_ID : "2100348528",
@@ -125,7 +125,6 @@ android {
     packagingOptions {
         exclude 'androidsupportmultidexversion.txt'
         exclude 'lib/armeabi-v7a/libyuv.so'
-        exclude 'res/values-zh/values-zh.xml'
     }
 }
 
