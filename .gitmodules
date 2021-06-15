@@ -34,3 +34,6 @@
 [submodule "suplink"]
 	path = suplink
 	url = git@192.168.90.160:isupplant-group/suplink.git
+[submodule "ChemFiberSuite"]
+	path = ChemFiberSuite
+	url = git@192.168.90.160:isupplant-group/isupplant-chemfibersuite.git
