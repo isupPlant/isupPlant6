@@ -1,3 +1,4 @@
+include ':module_suplinkapp'
 include ':shell'
 
 include /*框架*/':isupplant-shell:module_login',':isupplant-shell:module_contact',':isupplant-shell:home',':isupplant-shell:module_webview',
@@ -29,7 +30,7 @@ include/*实验室*/ ':isupplant-lims:module_product',':isupplant-lims:module_in
         ':isupplant-lims:module_sample',':isupplant-lims:module_retention'
 
 include/*连续生产*/ ':isupplant-psc:module_task'
-
+include/*suplink*/ ':suplink:module_suplinkapp'
 
 
 //includeModules()
